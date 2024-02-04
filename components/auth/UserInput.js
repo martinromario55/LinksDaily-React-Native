@@ -1,7 +1,14 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import React from 'react'
 
-const UserInput = ({ name, value, setValue }) => {
+const UserInput = ({
+  name,
+  value,
+  setValue,
+  autoCapitalize = 'none',
+  keyboardType = 'default',
+  secureTextEntry = false,
+}) => {
   return (
     <View style={styles.form}>
       <Text style={styles.label}>{name}</Text>
@@ -9,6 +16,10 @@ const UserInput = ({ name, value, setValue }) => {
         style={styles.textInput}
         value={value}
         onChangeText={text => setValue(text)}
+        autoCorrect={false}
+        autoCapitalize={autoCapitalize}
+        keyboardType={keyboardType}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   )
